@@ -6,8 +6,8 @@ export type fixture = {
 };
 
 export const test = base.extend<fixture>({
-  api: async ({}, use) => {
-    const reqHandler = new RequestHandler();
+  api: async ({ request }, use) => {
+    const reqHandler = new RequestHandler(request);
     await use(reqHandler);
   },
 });

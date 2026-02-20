@@ -6,8 +6,11 @@ export class RequestHandler {
   private apiParams: object = {};
   private apiHeaders: object = {};
   private apiBody: object = {};
+  private request: APIRequestContext;
 
-  constructor() {}
+  constructor(request: APIRequestContext) {
+    this.request = request;
+  }
 
   url(url: string) {
     this.baseUrl = url;
@@ -21,11 +24,13 @@ export class RequestHandler {
 
   params(params: object) {
     this.apiParams = params;
+    console.log(this.apiParams);
     return this;
   }
 
   header(headers: object) {
     this.apiHeaders = headers;
+    console.log(this.apiHeaders);
     return this;
   }
 
